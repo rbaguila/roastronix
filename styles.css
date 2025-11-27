@@ -64,7 +64,7 @@ body {
     color: var(--color-text);
     background-color: var(--color-background);
     overflow-x: hidden;
-    cursor: none;
+    cursor: auto;
 }
 
 /* Premium Custom Cursor */
