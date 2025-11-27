@@ -4,6 +4,73 @@
  */
 
 // ==========================================
+// Premium Custom Cursor
+// ==========================================
+(function initCustomCursor() {
+    // Only on desktop
+    if (window.innerWidth <= 768) return;
+
+    // Create cursor elements
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    const cursorDot = document.createElement('div');
+    cursorDot.className = 'custom-cursor-dot';
+
+    document.body.appendChild(cursor);
+    document.body.appendChild(cursorDot);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+    let dotX = 0;
+    let dotY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animate() {
+        // Smooth cursor follow
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        dotX += (mouseX - dotX) * 0.25;
+        dotY += (mouseY - dotY) * 0.25;
+
+        cursor.style.transform = `translate(${cursorX - 20}px, ${cursorY - 20}px)`;
+        cursorDot.style.transform = `translate(${dotX - 4}px, ${dotY - 4}px)`;
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Cursor interactions
+    const interactiveElements = document.querySelectorAll('a, button, .roaster-card, .machine-feature, input, textarea, select');
+
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('link-hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('link-hover');
+        });
+    });
+})();
+
+// ==========================================
+// Page Load Animation
+// ==========================================
+window.addEventListener('load', () => {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.6s ease';
+        document.body.style.opacity = '1';
+    }, 100);
+});
+
+// ==========================================
 // Navigation Scroll Effect
 // ==========================================
 const nav = document.getElementById('nav');
