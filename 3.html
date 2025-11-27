@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoasTronix - Minimalist Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-100: #f7f7f7;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-600: #525252;
+            --gray-800: #262626;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--black);
+            background: var(--white);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 3rem 4rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid var(--black);
+        }
+
+        .btn-black {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-black:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .btn-outline {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .btn-outline:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: var(--gray-200);
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Grid Section */
+        .grid-section {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 8rem 3rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            margin-bottom: 6rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
+        }
+
+        .grid-item {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .grid-item:nth-child(1) { animation-delay: 0.1s; }
+        .grid-item:nth-child(2) { animation-delay: 0.2s; }
+        .grid-item:nth-child(3) { animation-delay: 0.3s; }
+        .grid-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grid-item-number {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--gray-400);
+            margin-bottom: 2rem;
+        }
+
+        .grid-item h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .grid-item p {
+            color: var(--gray-600);
+            line-height: 1.8;
+        }
+
+        /* Product Grid */
+        .product-section {
+            background: var(--gray-100);
+            padding: 8rem 3rem;
+        }
+
+        .product-grid {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2px;
+            background: var(--white);
+        }
+
+        .product-item {
+            background: var(--white);
+            padding: 4rem;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .product-item:hover {
+            background: var(--gray-100);
+        }
+
+        .product-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-item h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .product-item p {
+            color: var(--gray-600);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .product-link {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .product-link:hover {
+            opacity: 0.6;
+        }
+
+        /* Feature Section */
+        .feature-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 3rem;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            margin-bottom: 8rem;
+        }
+
+        .feature-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-number {
+            font-size: 6rem;
+            font-weight: 300;
+            color: var(--gray-200);
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+
+        .feature-content h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-content p {
+            color: var(--gray-600);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--gray-600);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Stats */
+        .stats-section {
+            background: var(--black);
+            color: var(--white);
+            padding: 8rem 3rem;
+        }
+
+        .stats-grid {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .stat h2 {
+            font-size: 5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .stat p {
+            font-size: 0.875rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-400);
+        }
+
+        /* Contact */
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 3rem;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-section p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: left;
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .contact-item h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: var(--black);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.6;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--gray-200);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 2rem 4rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                display: block;
+                text-align: center;
+            }
+
+            .grid-section,
+            .product-section,
+            .feature-section,
+            .stats-section,
+            .contact-section {
+                padding: 4rem 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-item {
+                padding: 3rem 2rem;
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                margin-bottom: 4rem;
+            }
+
+            .feature-number {
+                font-size: 4rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .stat h2 {
+                font-size: 4rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">RoasTronix</div>
+            <ul class="nav-links">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">AI-Powered Coffee Roasting</div>
+            <h1>Precision.<br>Consistency.<br>Excellence.</h1>
+            <p>Championship-grade roasting technology designed for the modern coffee professional. All-electric. Sustainable. Intelligent.</p>
+            <div class="hero-cta">
+                <a href="#products" class="btn btn-black">View Products</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Values -->
+    <section class="grid-section">
+        <div class="section-label">Our Approach</div>
+        <h2 class="section-title">Built for Excellence</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <div class="grid-item-number">01</div>
+                <h3>Efficiency</h3>
+                <p>Save money and improve quality by roasting your own coffee. Flexible leasing options starting at $444/month make premium roasting accessible to businesses of all sizes.</p>
+            </div>
+            <div class="grid-item">
+                <div class="grid-item-number">02</div>
+                <h3>Innovation</h3>
+                <p>AI-driven precision delivers consistent roasting profiles with intelligent automation, elevating every batch to championship standards through advanced technology.</p>
+            </div>
+            <div class="grid-item">
+                <div class="grid-item-number">03</div>
+                <h3>Sustainability</h3>
+                <p>All-electric systems support decentralized roasting and seed-to-cup operations, reducing environmental impact while maximizing quality and efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Products -->
+    <section id="products" class="product-section">
+        <div class="product-grid">
+            <div class="product-item">
+                <div class="product-label">Professional Grade</div>
+                <h3>Stronghold S7 Pro</h3>
+                <p>Professional-grade roaster with advanced AI controls for precision roasting. Perfect for boutique operations and training facilities.</p>
+                <a href="#contact" class="product-link">Learn More</a>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">Enhanced Capacity</div>
+                <h3>Stronghold S7X</h3>
+                <p>Enhanced capacity with the same championship-winning technology. Ideal for growing roasteries and co-roasting spaces.</p>
+                <a href="#contact" class="product-link">Learn More</a>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">Mid-Range</div>
+                <h3>Stronghold S8X</h3>
+                <p>Mid-range powerhouse combining efficiency with precision. Built for cafés committed to exceptional quality at scale.</p>
+                <a href="#contact" class="product-link">Learn More</a>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">Flagship</div>
+                <h3>Stronghold S9X</h3>
+                <p>The flagship model for high-volume operations. Maximum capacity without compromising the precision that defines Stronghold.</p>
+                <a href="#contact" class="product-link">Learn More</a>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">Pour-Over System</div>
+                <h3>iRhea M3 Pro</h3>
+                <p>High-volume intelligent pour-over system with dual heating technology. Automated precision brewing for 60 cups per hour.</p>
+                <a href="#contact" class="product-link">Learn More</a>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">Premium System</div>
+                <h3>iRhea M5</h3>
+                <p>Premium performance system designed for demanding café environments. 100 cups per hour of intelligent automation and precision.</p>
+                <a href="#contact" class="product-link">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Features -->
+    <section id="features" class="feature-section">
+        <div class="feature-row">
+            <div>
+                <div class="feature-number">AI</div>
+            </div>
+            <div class="feature-content">
+                <h3>Artificial Intelligence</h3>
+                <p>Our proprietary AI technology learns and adapts to deliver perfect roasts every time. Real-time monitoring and adjustments ensure championship-level consistency.</p>
+                <ul class="feature-list">
+                    <li>Intelligent profile management</li>
+                    <li>Predictive temperature control</li>
+                    <li>Cloud-based analytics</li>
+                    <li>Automated adjustments</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="feature-row">
+            <div>
+                <div class="feature-number">100%</div>
+            </div>
+            <div class="feature-content">
+                <h3>All-Electric Design</h3>
+                <p>Completely electric systems eliminate emissions and reduce operating costs. Consistent heat distribution and precise temperature control deliver superior roasting quality.</p>
+                <ul class="feature-list">
+                    <li>Zero emissions operation</li>
+                    <li>Lower energy costs</li>
+                    <li>Precise heat control</li>
+                    <li>Sustainable footprint</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat">
+                <h2>$444</h2>
+                <p>Starting Monthly Lease</p>
+            </div>
+            <div class="stat">
+                <h2>24/7</h2>
+                <p>Support Available</p>
+            </div>
+            <div class="stat">
+                <h2>∞</h2>
+                <p>Possibilities</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <div class="section-label">Get Started</div>
+        <h2>Transform Your Coffee Operation</h2>
+        <p>Join hundreds of champion roasters who trust RoasTronix for precision, consistency, and excellence.</p>
+        <a href="#" class="btn btn-black">Contact Us</a>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Location</h4>
+                <p>13350 South Gessner Rd<br>Missouri City, TX 77489</p>
+            </div>
+            <div class="contact-item">
+                <h4>Phone</h4>
+                <p><a href="tel:+12817410343">+1 (281) 741-0343</a></p>
+            </div>
+            <div class="contact-item">
+                <h4>Email</h4>
+                <p><a href="mailto:arash@roastronix.com">arash@roastronix.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 RoasTronix. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
