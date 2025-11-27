@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoasTronix - Crafted with Warmth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --coffee-dark: #3e2723;
+            --coffee-medium: #5d4037;
+            --coffee-light: #8d6e63;
+            --cream: #f5f1e8;
+            --warm-white: #fafaf8;
+            --beige: #e8dcc8;
+            --gold: #c9a961;
+            --soft-brown: #a1887f;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--warm-white);
+            color: var(--coffee-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(62, 39, 35, 0.1);
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--coffee-dark);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--coffee-medium);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(to bottom, var(--cream) 0%, var(--warm-white) 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Lora', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--coffee-dark);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--coffee-medium);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--coffee-dark);
+            color: var(--warm-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--coffee-medium);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(62, 39, 35, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--coffee-dark);
+            border: 2px solid var(--coffee-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--coffee-dark);
+            color: var(--warm-white);
+        }
+
+        .hero-image {
+            position: relative;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(62, 39, 35, 0.15);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 5rem 2rem;
+            background: var(--warm-white);
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--coffee-dark);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--coffee-medium);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            opacity: 0.8;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .value-card {
+            background: var(--cream);
+            padding: 2.5rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(62, 39, 35, 0.08);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(62, 39, 35, 0.12);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-title {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--coffee-dark);
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: var(--coffee-medium);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 5rem 2rem;
+            background: var(--cream);
+        }
+
+        .products-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: var(--warm-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(62, 39, 35, 0.08);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(62, 39, 35, 0.15);
+        }
+
+        .product-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.08);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--gold);
+            color: var(--warm-white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+        }
+
+        .product-content {
+            padding: 2.5rem;
+        }
+
+        .product-name {
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--coffee-dark);
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: var(--coffee-medium);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .product-features li {
+            padding: 0.6rem 0;
+            color: var(--coffee-medium);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .product-features li::before {
+            content: '•';
+            color: var(--gold);
+            font-size: 1.5rem;
+            line-height: 0;
+        }
+
+        .product-price {
+            font-family: 'Lora', serif;
+            font-size: 1.25rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 5rem 2rem;
+            background: var(--warm-white);
+        }
+
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-text {
+            font-family: 'Lora', serif;
+            font-size: 1.15rem;
+            color: var(--coffee-dark);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: var(--coffee-medium);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: var(--cream);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: var(--warm-white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(62, 39, 35, 0.08);
+        }
+
+        .contact-label {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            color: var(--coffee-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-value {
+            color: var(--coffee-medium);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--coffee-dark);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 350px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .products-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">RoasTronix</div>
+            <ul class="nav-links">
+                <li><a href="#products">Roasters</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Crafted for Coffee Lovers</h1>
+                <p>Experience the warmth of intelligent roasting. Our all-electric machines bring professional-grade precision to your café, combining traditional craftsmanship with modern AI technology.</p>
+                <div class="cta-buttons">
+                    <a href="#products" class="btn btn-primary">Explore Roasters</a>
+                    <a href="#contact" class="btn btn-secondary">Start from $444/mo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" alt="Fresh roasted coffee beans">
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <h2 class="section-title">Why Coffee Professionals Choose Us</h2>
+            <p class="section-subtitle">Trusted by cafés and roasters who value quality</p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">☕</div>
+                    <h3 class="value-title">Authentic Quality</h3>
+                    <p class="value-description">Every roast reflects your dedication to craft. Our machines help you achieve consistent, exceptional results that your customers will love.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3 class="value-title">Sustainable Choice</h3>
+                    <p class="value-description">100% electric roasting reduces your environmental footprint while maintaining the rich flavors your coffee deserves.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-title">Built for You</h3>
+                    <p class="value-description">From boutique shops to growing operations, we support your journey with equipment designed to grow alongside your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="products-container">
+            <h2 class="section-title">Our Roasting Equipment</h2>
+            <p class="section-subtitle">Find the perfect roaster for your café</p>
+
+            <div class="products-grid">
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" alt="Stronghold S7 Pro">
+                        <div class="product-badge">Boutique</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Stronghold S7 Pro</h3>
+                        <p class="product-description">Perfect for small batch roasting with precision control. Ideal for boutique cafés and specialty roasters who value quality over quantity.</p>
+                        <ul class="product-features">
+                            <li>AI-assisted roast profiles</li>
+                            <li>Compact design for small spaces</li>
+                            <li>Easy to learn and operate</li>
+                            <li>Consistent batch-to-batch results</li>
+                        </ul>
+                        <div class="product-price">From $444/month</div>
+                        <a href="#contact" class="btn btn-primary">Learn More</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80" alt="Stronghold S8X">
+                        <div class="product-badge">Growing</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Stronghold S8X</h3>
+                        <p class="product-description">Balanced capacity and precision for cafés ready to scale. Maintains artisanal quality while increasing your production capabilities.</p>
+                        <ul class="product-features">
+                            <li>Increased batch capacity</li>
+                            <li>Advanced temperature control</li>
+                            <li>Energy-efficient operation</li>
+                            <li>Professional-grade reliability</li>
+                        </ul>
+                        <div class="product-price">Custom pricing</div>
+                        <a href="#contact" class="btn btn-primary">Learn More</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&q=80" alt="Stronghold S9X">
+                        <div class="product-badge">Professional</div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Stronghold S9X</h3>
+                        <p class="product-description">Maximum capacity for high-volume operations. Built for roasters who need to produce large quantities without compromising on quality.</p>
+                        <ul class="product-features">
+                            <li>High-volume production</li>
+                            <li>Multi-batch automation</li>
+                            <li>Championship-proven technology</li>
+                            <li>Enterprise support included</li>
+                        </ul>
+                        <div class="product-price">Custom pricing</div>
+                        <a href="#contact" class="btn btn-primary">Learn More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <h2 class="section-title">Loved by Coffee Professionals</h2>
+            <p class="section-subtitle">Stories from our community</p>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The S7 Pro transformed our roasting operation. We're producing better coffee than ever, and our customers can taste the difference. The consistency is incredible."</p>
+                <p class="testimonial-author">— Sarah Chen, Bloom Coffee Roasters</p>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Moving to all-electric with RoasTronix was the best decision for our café. Lower costs, better for the environment, and the quality speaks for itself."</p>
+                <p class="testimonial-author">— Marcus Thompson, The Daily Grind</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 class="section-title">Let's Start Your Journey</h2>
+            <p class="section-subtitle">Connect with our team to find the perfect roaster for your café</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-label">Visit Us</div>
+                    <div class="contact-value">13350 South Gessner Rd<br>Missouri City, TX 77489</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">arash@roastronix.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">+1 (281) 741-0343</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 RoasTronix - Crafting Excellence in Every Roast</p>
+    </footer>
+</body>
+</html>
