@@ -65,8 +65,10 @@
             top: 0;
             left: 0;
             right: 0;
-            background: var(--white);
-            border-bottom: 1px solid var(--gray-200);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
 
@@ -114,6 +116,9 @@
             justify-content: center;
             text-align: center;
             padding: 8rem 3rem 4rem;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                        url('https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=1600&q=80') center/cover;
+            position: relative;
         }
 
         .hero-content {
@@ -265,13 +270,25 @@
 
         .product-item {
             background: var(--white);
-            padding: 4rem;
+            padding: 0;
             transition: background 0.3s;
             cursor: pointer;
+            overflow: hidden;
         }
 
         .product-item:hover {
             background: var(--gray-100);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-content {
+            padding: 3rem;
         }
 
         .product-label {
@@ -326,6 +343,13 @@
 
         .feature-row:last-child {
             margin-bottom: 0;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 2px;
         }
 
         .feature-number {
@@ -584,45 +608,63 @@
     <section id="products" class="product-section">
         <div class="product-grid">
             <div class="product-item">
-                <div class="product-label">Professional Grade</div>
-                <h3>Stronghold S7 Pro</h3>
-                <p>Professional-grade roaster with advanced AI controls for precision roasting. Perfect for boutique operations and training facilities.</p>
-                <a href="#contact" class="product-link">Learn More</a>
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="Stronghold S7 Pro" class="product-image">
+                <div class="product-content">
+                    <div class="product-label">Professional Grade</div>
+                    <h3>Stronghold S7 Pro</h3>
+                    <p>Professional-grade roaster with advanced AI controls for precision roasting. Perfect for boutique operations and training facilities.</p>
+                    <a href="#contact" class="product-link">Learn More</a>
+                </div>
             </div>
 
             <div class="product-item">
-                <div class="product-label">Enhanced Capacity</div>
-                <h3>Stronghold S7X</h3>
-                <p>Enhanced capacity with the same championship-winning technology. Ideal for growing roasteries and co-roasting spaces.</p>
-                <a href="#contact" class="product-link">Learn More</a>
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&q=80" alt="Stronghold S7X" class="product-image">
+                <div class="product-content">
+                    <div class="product-label">Enhanced Capacity</div>
+                    <h3>Stronghold S7X</h3>
+                    <p>Enhanced capacity with the same championship-winning technology. Ideal for growing roasteries and co-roasting spaces.</p>
+                    <a href="#contact" class="product-link">Learn More</a>
+                </div>
             </div>
 
             <div class="product-item">
-                <div class="product-label">Mid-Range</div>
-                <h3>Stronghold S8X</h3>
-                <p>Mid-range powerhouse combining efficiency with precision. Built for cafés committed to exceptional quality at scale.</p>
-                <a href="#contact" class="product-link">Learn More</a>
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Stronghold S8X" class="product-image">
+                <div class="product-content">
+                    <div class="product-label">Mid-Range</div>
+                    <h3>Stronghold S8X</h3>
+                    <p>Mid-range powerhouse combining efficiency with precision. Built for cafés committed to exceptional quality at scale.</p>
+                    <a href="#contact" class="product-link">Learn More</a>
+                </div>
             </div>
 
             <div class="product-item">
-                <div class="product-label">Flagship</div>
-                <h3>Stronghold S9X</h3>
-                <p>The flagship model for high-volume operations. Maximum capacity without compromising the precision that defines Stronghold.</p>
-                <a href="#contact" class="product-link">Learn More</a>
+                <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&q=80" alt="Stronghold S9X" class="product-image">
+                <div class="product-content">
+                    <div class="product-label">Flagship</div>
+                    <h3>Stronghold S9X</h3>
+                    <p>The flagship model for high-volume operations. Maximum capacity without compromising the precision that defines Stronghold.</p>
+                    <a href="#contact" class="product-link">Learn More</a>
+                </div>
             </div>
 
             <div class="product-item">
-                <div class="product-label">Pour-Over System</div>
-                <h3>iRhea M3 Pro</h3>
-                <p>High-volume intelligent pour-over system with dual heating technology. Automated precision brewing for 60 cups per hour.</p>
-                <a href="#contact" class="product-link">Learn More</a>
+                <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=600&q=80" alt="iRhea M3 Pro" class="product-image">
+                <div class="product-content">
+                    <div class="product-label">Pour-Over System</div>
+                    <h3>iRhea M3 Pro</h3>
+                    <p>High-volume intelligent pour-over system with dual heating technology. Automated precision brewing for 60 cups per hour.</p>
+                    <a href="#contact" class="product-link">Learn More</a>
+                </div>
             </div>
 
             <div class="product-item">
-                <div class="product-label">Premium System</div>
-                <h3>iRhea M5</h3>
-                <p>Premium performance system designed for demanding café environments. 100 cups per hour of intelligent automation and precision.</p>
-                <a href="#contact" class="product-link">Learn More</a>
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80" alt="iRhea M5" class="product-image">
+                <div class="product-content">
+                    <div class="product-label">Premium System</div>
+                    <h3>iRhea M5</h3>
+                    <p>Premium performance system designed for demanding café environments. 100 cups per hour of intelligent automation and precision.</p>
+                    <a href="#contact" class="product-link">Learn More</a>
+                </div>
             </div>
         </div>
     </section>
@@ -633,7 +675,7 @@
     <section id="features" class="feature-section">
         <div class="feature-row">
             <div>
-                <div class="feature-number">AI</div>
+                <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=600&q=80" alt="AI Technology" class="feature-image">
             </div>
             <div class="feature-content">
                 <h3>Artificial Intelligence</h3>
@@ -649,7 +691,7 @@
 
         <div class="feature-row">
             <div>
-                <div class="feature-number">100%</div>
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=80" alt="All-Electric Roasting" class="feature-image">
             </div>
             <div class="feature-content">
                 <h3>All-Electric Design</h3>
