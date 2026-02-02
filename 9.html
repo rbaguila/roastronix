@@ -2128,6 +2128,373 @@
                 bottom: 10px;
             }
         }
+
+        /* AI Chat Widget */
+        .chat-widget {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 10000;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chat-bubble {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .chat-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .chat-bubble svg {
+            width: 28px;
+            height: 28px;
+            fill: #0a0a0a;
+        }
+
+        .chat-bubble .close-icon {
+            display: none;
+        }
+
+        .chat-bubble.active .chat-icon {
+            display: none;
+        }
+
+        .chat-bubble.active .close-icon {
+            display: block;
+        }
+
+        .chat-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--primary-gold);
+            opacity: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        .chat-window {
+            position: absolute;
+            top: 50%;
+            right: 80px;
+            transform: translateY(-50%) translateX(20px) scale(0.95);
+            width: 380px;
+            height: 550px;
+            max-height: 80vh;
+            background: var(--bg-dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .chat-window.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(-50%) translateX(0) scale(1);
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-gold-dark));
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .chat-avatar {
+            width: 45px;
+            height: 45px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .chat-header-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0a0a0a;
+            margin-bottom: 2px;
+        }
+
+        .chat-header-info p {
+            font-size: 0.75rem;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: var(--bg-dark);
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--border-dark);
+            border-radius: 3px;
+        }
+
+        .message {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .message.user .message-avatar {
+            background: var(--bg-dark-card);
+            border: 2px solid var(--border-dark);
+        }
+
+        .message-content {
+            background: var(--bg-dark-card);
+            padding: 12px 16px;
+            border-radius: 12px;
+            max-width: 75%;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border: 1px solid var(--border-dark);
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(184, 148, 31, 0.2));
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .typing-indicator {
+            display: none;
+            gap: 4px;
+            padding: 12px 16px;
+            background: var(--bg-dark-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-dark);
+            width: fit-content;
+        }
+
+        .typing-indicator.active {
+            display: flex;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        .chat-input-container {
+            padding: 15px 20px;
+            background: var(--bg-dark-card);
+            border-top: 1px solid var(--border-dark);
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            background: var(--bg-dark);
+            border: 2px solid var(--border-dark);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--primary-gold);
+        }
+
+        .chat-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .chat-send-btn {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-gold-dark));
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .chat-send-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .chat-send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .chat-send-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #0a0a0a;
+        }
+
+        .quick-questions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .quick-question-btn {
+            padding: 8px 14px;
+            background: var(--bg-dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-question-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--primary-gold);
+            color: var(--primary-gold);
+        }
+
+        @media (max-width: 768px) {
+            .chat-widget {
+                top: auto;
+                bottom: 20px;
+                right: 20px;
+                transform: none;
+            }
+
+            .chat-window {
+                width: calc(100vw - 40px);
+                height: calc(100vh - 100px);
+                max-height: calc(100vh - 100px);
+                top: auto;
+                bottom: 70px;
+                right: -10px;
+                transform: translateY(20px) scale(0.95);
+            }
+
+            .chat-window.active {
+                transform: translateY(0) scale(1);
+            }
+
+            .chat-bubble {
+                width: 55px;
+                height: 55px;
+            }
+
+            .chat-bubble svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2802,6 +3169,71 @@
         </div>
     </footer>
 
+    <!-- AI Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-bubble" id="chatBubble">
+            <div class="chat-pulse"></div>
+            <svg class="chat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+            </svg>
+            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            </svg>
+        </div>
+
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-avatar">🤖</div>
+                <div class="chat-header-info">
+                    <h3>RoasTronix AI</h3>
+                    <p>Online • Ready to help</p>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        Hi! I'm your RoasTronix AI assistant. I can help you with information about our products, services, pricing, and more. How can I assist you today?
+                    </div>
+                </div>
+                <div class="quick-questions" id="quickQuestions">
+                    <button class="quick-question-btn" data-question="Tell me about Stronghold roasters">Stronghold Roasters</button>
+                    <button class="quick-question-btn" data-question="What is the leasing price?">Leasing Info</button>
+                    <button class="quick-question-btn" data-question="Tell me about iRhea machines">iRhea Machines</button>
+                    <button class="quick-question-btn" data-question="What services do you offer?">Our Services</button>
+                </div>
+            </div>
+
+            <div class="message typing-message" style="padding: 0 20px 20px;">
+                <div class="message-avatar">🤖</div>
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input
+                        type="text"
+                        class="chat-input"
+                        id="chatInput"
+                        placeholder="Ask me anything about RoasTronix..."
+                        autocomplete="off"
+                    />
+                    <button class="chat-send-btn" id="chatSendBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Navigation scroll effect - starts at top, moves to bottom after hero
         const nav = document.getElementById('nav');
@@ -3002,6 +3434,178 @@
                     });
                 }
             });
+        });
+
+        // AI Chat Widget
+        const chatBubble = document.getElementById('chatBubble');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSendBtn = document.getElementById('chatSendBtn');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const quickQuestions = document.getElementById('quickQuestions');
+
+        // RoasTronix Knowledge Base
+        const knowledgeBase = {
+            'stronghold': {
+                keywords: ['stronghold', 's7', 's8', 's9', 'roaster', 'roasters', 'roasting'],
+                response: "Our Stronghold series features championship-winning AI-powered roasters:\n\n• S7 Pro - Perfect for boutique roasters\n• S8X - Mid-capacity with advanced AI profiles\n• S9X - High-volume commercial roasting\n\nAll models feature:\n✓ All-electric operation\n✓ AI-powered precision control\n✓ Championship-proven technology\n✓ Sustainable & eco-friendly\n\nLeasing starts at $444/month. Would you like to know more about a specific model?"
+            },
+            'irhea': {
+                keywords: ['irhea', 'm3', 'm5', 'coffee machine', 'pour over', 'drip'],
+                response: "The iRhea series offers intelligent pour-over coffee machines:\n\n• iRhea M3 Pro - Automated pour-over perfection\n• iRhea M5 - Premium multi-station brewing\n\nFeatures:\n✓ Automated pour-over technology\n✓ Consistent extraction every time\n✓ Programmable profiles\n✓ Professional-grade quality\n\nPerfect for cafés seeking automated excellence. Would you like pricing details?"
+            },
+            'pricing': {
+                keywords: ['price', 'cost', 'lease', 'leasing', 'payment', 'monthly', 'finance'],
+                response: "RoasTronix offers flexible leasing options:\n\n💰 Starting at $444/month\n\n✓ No large upfront investment\n✓ Flexible lease terms\n✓ Includes maintenance & support\n✓ Easy equipment upgrades\n\nOur ROI calculator shows most cafés save 32% on costs and achieve payback within 18-24 months. Would you like a personalized ROI calculation?"
+            },
+            'services': {
+                keywords: ['service', 'support', 'training', 'education', 'help'],
+                response: "We offer comprehensive services:\n\n☕ Café to Café Roastery - Full transformation support\n🤝 Co-Roasting Programs - Shared facilities\n📚 Education & Training - Professional certifications\n✓ Quality Control - Consistency assurance\n🎨 Profile Design - Custom roast profiles\n🏆 Competition Support - Cupping & events\n💼 Business Consulting - Growth strategies\n\nWhich service interests you most?"
+            },
+            'usrc': {
+                keywords: ['usrc', 'championship', 'competition', 'sponsor', 'award'],
+                response: "RoasTronix is the official sponsor of the United States Roaster Championship (USRC) since 2020!\n\n🏆 We support:\n✓ Championship roasters worldwide\n✓ 500+ boutique roasters\n✓ Professional competitions\n✓ Industry innovation\n\nOur equipment is proven at the highest levels of coffee roasting excellence."
+            },
+            'sustainability': {
+                keywords: ['sustainable', 'eco', 'environment', 'green', 'carbon', 'electric'],
+                response: "Sustainability is core to RoasTronix:\n\n🌱 All-electric roasters (no gas)\n♻️ Reduces carbon footprint by 2.2 lbs CO₂ per lb\n⚡ Energy-efficient AI optimization\n🌍 Local roasting reduces shipping emissions\n\nBy roasting on-site, cafés eliminate the environmental impact of shipped roasted coffee while improving freshness and quality."
+            },
+            'roi': {
+                keywords: ['roi', 'return', 'investment', 'savings', 'profit', 'calculator'],
+                response: "Our ROI Calculator shows compelling benefits:\n\n💰 Average 32% cost savings for café owners\n📈 Typical payback period: 18-24 months\n☕ Save $2-3 per pound vs buying pre-roasted\n🛍️ Additional revenue from retail bag sales\n\nFactors:\n✓ Eliminated shipping costs\n✓ Lower green coffee prices\n✓ Retail opportunities\n✓ Quality control\n\nTry our interactive calculator on this page for your specific numbers!"
+            },
+            'contact': {
+                keywords: ['contact', 'call', 'email', 'phone', 'reach', 'address', 'location'],
+                response: "Get in touch with us:\n\n📧 Email: arash@roastronix.com\n📱 Phone: +1 (281) 741-0343\n📍 Address:\n   13350 South Gessner Rd\n   Missouri City, TX 77489\n\nWe're here Monday-Friday, 9 AM - 6 PM CT.\n\nWould you like to schedule a consultation or equipment demo?"
+            },
+            'difference': {
+                keywords: ['difference', 'vs', 'comparison', 'compare', 'better', 'why'],
+                response: "What sets RoasTronix apart:\n\n🏆 Championship Proven\n✓ Official USRC sponsor\n✓ Used by award-winning roasters\n\n🤖 AI-Powered Technology\n✓ Precision temperature control\n✓ Automated profile management\n✓ Consistent results every time\n\n⚡ All-Electric\n✓ No gas required\n✓ Safer operation\n✓ Lower environmental impact\n\n💼 Complete Support\n✓ Training & education\n✓ Business consulting\n✓ Quality control programs\n\nOur competitors often lack the combination of championship credibility, AI technology, and comprehensive support that we provide."
+            }
+        };
+
+        // Fallback responses
+        const fallbackResponses = [
+            "That's a great question! Let me help you with information about RoasTronix. We specialize in AI-powered coffee roasters and intelligent brewing equipment. What would you like to know more about?",
+            "I'd be happy to help! RoasTronix offers championship-winning roasters, intelligent coffee machines, and comprehensive support services. Which area interests you most?",
+            "Thanks for asking! Our main products include the Stronghold roaster series and iRhea pour-over machines. We also offer leasing from $444/month and full support services. What specific information can I provide?"
+        ];
+
+        let conversationHistory = [];
+
+        // Toggle chat window
+        chatBubble.addEventListener('click', () => {
+            chatBubble.classList.toggle('active');
+            chatWindow.classList.toggle('active');
+
+            if (chatWindow.classList.contains('active')) {
+                chatInput.focus();
+            }
+        });
+
+        // Quick question buttons
+        quickQuestions.addEventListener('click', (e) => {
+            if (e.target.classList.contains('quick-question-btn')) {
+                const question = e.target.dataset.question;
+                sendMessage(question);
+                quickQuestions.style.display = 'none';
+            }
+        });
+
+        // Send message function
+        function sendMessage(messageText = null) {
+            const message = messageText || chatInput.value.trim();
+
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+
+            // Clear input
+            if (!messageText) {
+                chatInput.value = '';
+            }
+
+            // Show typing indicator
+            typingIndicator.classList.add('active');
+
+            // Scroll to bottom
+            setTimeout(() => {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 100);
+
+            // Get AI response
+            setTimeout(() => {
+                const response = getAIResponse(message);
+                typingIndicator.classList.remove('active');
+                addMessage(response, 'ai');
+
+                setTimeout(() => {
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 100);
+            }, 1000 + Math.random() * 1000);
+        }
+
+        // Add message to chat
+        function addMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type === 'user' ? 'user' : ''}`;
+
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = type === 'user' ? '👤' : '🤖';
+
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            content.textContent = text;
+
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(content);
+
+            chatMessages.insertBefore(messageDiv, chatMessages.querySelector('.typing-message'));
+
+            conversationHistory.push({ type, text });
+        }
+
+        // Get AI response based on message
+        function getAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+
+            // Check knowledge base
+            for (const [key, data] of Object.entries(knowledgeBase)) {
+                if (data.keywords.some(keyword => lowerMessage.includes(keyword))) {
+                    return data.response;
+                }
+            }
+
+            // Greeting detection
+            if (/(hi|hello|hey|greetings|good morning|good afternoon)/i.test(lowerMessage)) {
+                return "Hello! Welcome to RoasTronix. I'm here to help you learn about our championship-winning coffee roasters, intelligent brewing equipment, and services. What would you like to know?";
+            }
+
+            // Thank you detection
+            if (/(thank|thanks|appreciate)/i.test(lowerMessage)) {
+                return "You're very welcome! Is there anything else you'd like to know about RoasTronix? I'm here to help with product details, pricing, services, or any other questions.";
+            }
+
+            // Return random fallback
+            return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+        }
+
+        // Send on button click
+        chatSendBtn.addEventListener('click', () => sendMessage());
+
+        // Send on Enter key
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Prevent chat from closing when clicking inside
+        chatWindow.addEventListener('click', (e) => {
+            e.stopPropagation();
         });
     </script>
 </body>
