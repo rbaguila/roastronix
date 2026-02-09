@@ -18,9 +18,9 @@
             --bg-dark: #0a0a0a;
             --bg-dark-lighter: #1a1a1a;
             --bg-dark-card: #161616;
-            --primary-gold: #d4af37;
-            --primary-gold-dark: #b8941f;
-            --accent-gold-light: #f4d03f;
+            --primary-gold: #A01C2E;
+            --primary-gold-dark: #7A1525;
+            --accent-gold-light: #C4283A;
             --text-primary: #ffff;
             --text-secondary: #b3b3b3;
             --text-muted: #808080;
@@ -88,16 +88,14 @@
         }
 
         .logo {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
             transition: all 0.3s;
         }
 
-        .logo span {
-            color: var(--primary-gold);
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-menu {
@@ -145,7 +143,7 @@
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 30px rgba(160, 28, 46, 0.5);
         }
 
         nav.scrolled .nav-cta {
@@ -272,7 +270,7 @@
             right: 30px;
             width: 40px;
             height: 40px;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(160, 28, 46, 0.1);
             border: 2px solid var(--primary-gold);
             border-radius: 50%;
             display: flex;
@@ -384,7 +382,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(212, 175, 55, 0.2) 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(160, 28, 46, 0.2) 100%);
         }
 
         .slide-content {
@@ -450,7 +448,7 @@
         .slide-label {
             display: inline-block;
             padding: 8px 20px;
-            background: rgba(212, 175, 55, 0.2);
+            background: rgba(160, 28, 46, 0.2);
             border: 1px solid var(--primary-gold);
             border-radius: 50px;
             font-size: 0.75rem;
@@ -610,7 +608,7 @@
 
         .discover-more:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 15px 40px rgba(160, 28, 46, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -701,8 +699,8 @@
             right: 0;
             bottom: 0;
             background:
-                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 20% 50%, rgba(160, 28, 46, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(160, 28, 46, 0.05) 0%, transparent 40%);
             pointer-events: none;
         }
 
@@ -774,7 +772,7 @@
             gap: 50px;
             align-items: center;
             padding: 50px 55px;
-            background: linear-gradient(135deg, var(--bg-dark-card) 0%, rgba(212, 175, 55, 0.05) 100%);
+            background: linear-gradient(135deg, var(--bg-dark-card) 0%, rgba(160, 28, 46, 0.05) 100%);
         }
 
         .customer-card::before {
@@ -784,7 +782,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.08), transparent);
+            background: linear-gradient(90deg, transparent, rgba(160, 28, 46, 0.08), transparent);
             transition: left 0.6s;
         }
 
@@ -829,8 +827,8 @@
             width: 100%;
             max-width: 180px;
             height: 180px;
-            background: rgba(212, 175, 55, 0.1);
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: rgba(160, 28, 46, 0.1);
+            border: 2px solid rgba(160, 28, 46, 0.3);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -854,7 +852,7 @@
 
         .customer-card:hover .customer-logo {
             border-color: var(--primary-gold);
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(160, 28, 46, 0.15);
         }
 
         .customer-card:hover .customer-logo img {
@@ -900,8 +898,8 @@
         .award-trophy {
             width: 45px;
             height: 55px;
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(160, 28, 46, 0.1);
+            border: 1px solid rgba(160, 28, 46, 0.3);
             border-radius: 8px;
             position: relative;
             transition: all 0.3s;
@@ -920,7 +918,7 @@
             opacity: 0.8;
             transform: translateY(-3px);
             border-color: var(--primary-gold);
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(160, 28, 46, 0.15);
         }
 
         /* Customers Section Responsive */
@@ -1054,7 +1052,7 @@
         .section-label {
             display: inline-block;
             padding: 8px 20px;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(160, 28, 46, 0.1);
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
@@ -1102,7 +1100,7 @@
         .product-button:hover {
             transform: translateY(-10px);
             border-color: var(--primary-gold);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 60px rgba(160, 28, 46, 0.3);
         }
 
         .product-image {
@@ -1205,7 +1203,7 @@
         .service-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary-gold);
-            background: linear-gradient(135deg, var(--bg-dark-card), rgba(212, 175, 55, 0.05));
+            background: linear-gradient(135deg, var(--bg-dark-card), rgba(160, 28, 46, 0.05));
         }
 
         .service-icon {
@@ -1282,7 +1280,7 @@
         .sca-number {
             font-size: 3rem;
             font-weight: 800;
-            color: rgba(212, 175, 55, 0.2);
+            color: rgba(160, 28, 46, 0.2);
             margin-bottom: 20px;
         }
 
@@ -1446,7 +1444,7 @@
             border-radius: 50%;
             background: var(--primary-gold);
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 2px 10px rgba(160, 28, 46, 0.5);
             transition: all 0.3s;
         }
 
@@ -1461,7 +1459,7 @@
             background: var(--primary-gold);
             cursor: pointer;
             border: none;
-            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 2px 10px rgba(160, 28, 46, 0.5);
         }
 
         .calculator-results {
@@ -1512,7 +1510,7 @@
         .metric-icon {
             width: 32px;
             height: 32px;
-            background: rgba(212, 175, 55, 0.2);
+            background: rgba(160, 28, 46, 0.2);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -1558,7 +1556,7 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 30px rgba(160, 28, 46, 0.5);
         }
 
         .assumptions {
@@ -1677,9 +1675,9 @@
         .comparison-note {
             text-align: center;
             padding: 20px;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(160, 28, 46, 0.1);
             border-radius: 10px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(160, 28, 46, 0.3);
             position: relative;
             z-index: 1;
         }
@@ -1689,7 +1687,7 @@
             align-items: center;
             gap: 6px;
             padding: 8px 14px;
-            background: rgba(212, 175, 55, 0.2);
+            background: rgba(160, 28, 46, 0.2);
             border: 1px solid var(--primary-gold);
             border-radius: 50px;
             font-size: 0.75rem;
@@ -1741,7 +1739,7 @@
 
         .newsletter-form button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px rgba(160, 28, 46, 0.4);
         }
 
         /* Footer */
@@ -2148,14 +2146,14 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 20px rgba(160, 28, 46, 0.4);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
 
         .chat-bubble:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 6px 30px rgba(160, 28, 46, 0.6);
         }
 
         .chat-bubble svg {
@@ -2331,8 +2329,8 @@
         }
 
         .message.user .message-content {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(184, 148, 31, 0.2));
-            border-color: rgba(212, 175, 55, 0.3);
+            background: linear-gradient(135deg, rgba(160, 28, 46, 0.2), rgba(122, 21, 37, 0.2));
+            border-color: rgba(160, 28, 46, 0.3);
         }
 
         .typing-indicator {
@@ -2425,7 +2423,7 @@
 
         .chat-send-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 15px rgba(160, 28, 46, 0.4);
         }
 
         .chat-send-btn:disabled {
@@ -2458,7 +2456,7 @@
         }
 
         .quick-question-btn:hover {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(160, 28, 46, 0.1);
             border-color: var(--primary-gold);
             color: var(--primary-gold);
         }
@@ -2501,7 +2499,7 @@
     <!-- Navigation -->
     <nav id="nav">
         <div class="nav-container">
-            <div class="logo">Roas<span>Tronix</span></div>
+            <div class="logo"><img src="Roas2-1-2.png" alt="RoasTronix" style="height: 40px; width: auto;"></div>
             <ul class="nav-menu">
                 <li><a href="#products">Products</a></li>
                 <li><a href="#services">Services</a></li>
