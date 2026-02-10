@@ -1089,7 +1089,7 @@
 
         .product-button {
             position: relative;
-            height: 400px;
+            height: 720px;
             border-radius: 24px;
             overflow: hidden;
             cursor: pointer;
@@ -1329,7 +1329,7 @@
 
         .calculator-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 0;
         }
 
@@ -1559,132 +1559,175 @@
             text-align: center;
         }
 
-        /* Comparison Column */
-        .calculator-comparison {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
-            color: var(--text-primary);
-            padding: 40px;
-            position: relative;
+        /* Energy Consumption Calculator */
+        .energy-section .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+        }
+
+        .energy-section {
+            padding: 120px 40px;
+            background: var(--bg-dark);
+        }
+
+        .energy-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 24px;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
-        .calculator-comparison::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255, 255, 255, 0.02) 10px,
-                rgba(255, 255, 255, 0.02) 20px
-            );
-            pointer-events: none;
+        .energy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
         }
 
-        .comparison-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            z-index: 1;
+        .energy-inputs {
+            padding: 60px;
+            border-right: 1px solid var(--border-dark);
         }
 
-        .comparison-badge {
-            display: inline-block;
-            padding: 5px 14px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 12px;
-        }
-
-        .comparison-header h3 {
-            font-size: 1.2rem;
+        .energy-inputs h3 {
+            font-size: 1.25rem;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 10px;
         }
 
-        .roi-total-comparison {
+        .energy-inputs > p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .energy-results {
+            background: linear-gradient(135deg, #2a1520 0%, #1a0d14 100%);
+            color: var(--text-primary);
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .energy-total {
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 30px;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            z-index: 1;
         }
 
-        .roi-total-comparison .roi-total-value {
-            color: rgba(255, 255, 255, 0.6);
+        .energy-total-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
         }
 
-        .metrics-grid-comparison {
+        .energy-total-value {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--primary-gold);
+        }
+
+        .energy-metrics-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin-bottom: 50px;
         }
 
-        .metric-item-comparison {
+        .energy-metric-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.03);
+            gap: 15px;
+        }
+
+        .energy-metric-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(160, 28, 46, 0.2);
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .metric-item-comparison .metric-icon {
-            width: 32px;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.08);
+        .energy-metric-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--primary-gold);
         }
 
-        .metric-item-comparison .metric-icon svg {
-            width: 16px;
-            height: 16px;
-            stroke: rgba(255, 255, 255, 0.4);
+        .energy-metric-content h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 5px;
         }
 
-        .metric-item-comparison .metric-content .value {
-            font-size: 1.4rem;
-            color: rgba(255, 255, 255, 0.7);
+        .energy-metric-content .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
         }
 
-        .comparison-note {
+        .energy-highlight {
             text-align: center;
             padding: 20px;
             background: rgba(160, 28, 46, 0.1);
-            border-radius: 10px;
+            border-radius: 12px;
             border: 1px solid rgba(160, 28, 46, 0.3);
-            position: relative;
-            z-index: 1;
         }
 
-        .comparison-advantage {
+        .energy-highlight p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+        }
+
+        .energy-highlight strong {
+            color: var(--primary-gold);
+        }
+
+        .energy-badge-inline {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 14px;
+            padding: 8px 16px;
             background: rgba(160, 28, 46, 0.2);
             border: 1px solid var(--primary-gold);
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--primary-gold);
-            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .energy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .energy-inputs {
+                border-right: none;
+                border-bottom: 1px solid var(--border-dark);
+            }
+
+            .energy-inputs,
+            .energy-results {
+                padding: 30px;
+            }
+
+            .energy-metrics-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Newsletter Section */
@@ -1825,8 +1868,7 @@
         /* Responsive */
         @media (max-width: 1200px) {
             .calculator-inputs,
-            .calculator-results,
-            .calculator-comparison {
+            .calculator-results {
                 padding: 35px;
             }
         }
@@ -1996,8 +2038,7 @@
             }
 
             .calculator-inputs,
-            .calculator-results,
-            .calculator-comparison {
+            .calculator-results {
                 padding: 25px;
             }
 
@@ -2705,23 +2746,6 @@
                     </div>
                 </div>
 
-                <div class="product-button">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200&q=80" alt="Super Automatic" class="product-image">
-                    <div class="product-overlay">
-                    <div class="product-badge">Premium</div>
-                    <h3>Super Automatic</h3>
-                    <p>Fully automated espresso with precision control.</p>
-                    </div>
-                </div>
-
-                <div class="product-button">
-                    <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1200&q=80" alt="Espresso" class="product-image">
-                    <div class="product-overlay">
-                    <div class="product-badge">Professional</div>
-                    <h3>Espresso Machines</h3>
-                    <p>Commercial-grade for consistent excellence.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -2964,76 +2988,127 @@
                     </div>
                     </div>
 
-                    <!-- Brand X Comparison -->
-                    <div class="calculator-comparison">
-                    <div class="comparison-header">
-                    <div class="comparison-badge">Competitor</div>
-                    <h3>Brand X</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Consumption Calculator -->
+    <section id="energy" class="energy-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Sustainability</div>
+                <h2>Energy Consumption Calculator</h2>
+                <p>See how our all-electric roasters reduce energy costs and carbon footprint compared to gas-powered alternatives</p>
+            </div>
+
+            <div class="energy-wrapper">
+                <div class="energy-grid">
+                    <div class="energy-inputs">
+                        <h3>Your Roasting Operation</h3>
+                        <p>Adjust values to match your usage</p>
+
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <span class="slider-label">Roasting sessions per week</span>
+                                <span class="slider-value"><span id="sessionsWeeklyValue">10</span></span>
+                            </div>
+                            <input type="range" id="sessionsWeekly" min="1" max="40" value="10" step="1">
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <span class="slider-label">Average batch size</span>
+                                <span class="slider-value"><span id="batchSizeValue">10</span> lbs</span>
+                            </div>
+                            <input type="range" id="batchSize" min="2" max="50" value="10" step="1">
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <span class="slider-label">Session duration</span>
+                                <span class="slider-value"><span id="sessionDurationValue">15</span> min</span>
+                            </div>
+                            <input type="range" id="sessionDuration" min="8" max="30" value="15" step="1">
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <span class="slider-label">Electricity rate</span>
+                                <span class="slider-value">$<span id="electricityRateValue">0.14</span>/kWh</span>
+                            </div>
+                            <input type="range" id="electricityRate" min="0.05" max="0.50" value="0.14" step="0.01">
+                        </div>
+
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <span class="slider-label">Gas rate (comparison)</span>
+                                <span class="slider-value">$<span id="gasRateValue">1.50</span>/therm</span>
+                            </div>
+                            <input type="range" id="gasRate" min="0.50" max="3.00" value="1.50" step="0.10">
+                        </div>
                     </div>
 
-                    <div class="roi-total-comparison">
-                    <div class="roi-total-label">Brand X ROI/Year</div>
-                    <div class="roi-total-value" id="totalROIComparison">$32,415</div>
-                    </div>
+                    <div class="energy-results">
+                        <div class="energy-total">
+                            <div class="energy-total-label">Annual Energy Cost Savings</div>
+                            <div class="energy-total-value" id="energySavingsTotal">$1,247</div>
+                        </div>
 
-                    <div class="metrics-grid-comparison">
-                    <div class="metric-item-comparison">
-                    <div class="metric-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                    </svg>
-                    </div>
-                    <div class="metric-content">
-                    <h4>Annual Savings</h4>
-                    <div class="value" id="annualSavingsComparison">$19,935</div>
-                    </div>
-                    </div>
+                        <div class="energy-metrics-grid">
+                            <div class="energy-metric-item">
+                                <div class="energy-metric-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <div class="energy-metric-content">
+                                    <h4>Electric kWh/Year</h4>
+                                    <div class="value" id="annualKwh">3,900</div>
+                                </div>
+                            </div>
 
-                    <div class="metric-item-comparison">
-                    <div class="metric-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    </div>
-                    <div class="metric-content">
-                    <h4>Per lb</h4>
-                    <div class="value" id="savingsPerLbComparison">$5.11</div>
-                    </div>
-                    </div>
+                            <div class="energy-metric-item">
+                                <div class="energy-metric-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="energy-metric-content">
+                                    <h4>Electric Cost/Year</h4>
+                                    <div class="value" id="annualElectricCost">$546</div>
+                                </div>
+                            </div>
 
-                    <div class="metric-item-comparison">
-                    <div class="metric-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                    </svg>
-                    </div>
-                    <div class="metric-content">
-                    <h4>Retail Profit</h4>
-                    <div class="value" id="retailProfitComparison">$12,480</div>
-                    </div>
-                    </div>
+                            <div class="energy-metric-item">
+                                <div class="energy-metric-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+                                    </svg>
+                                </div>
+                                <div class="energy-metric-content">
+                                    <h4>Gas Cost/Year</h4>
+                                    <div class="value" id="annualGasCost">$1,793</div>
+                                </div>
+                            </div>
 
-                    <div class="metric-item-comparison">
-                    <div class="metric-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    </div>
-                    <div class="metric-content">
-                    <h4>Payback</h4>
-                    <div class="value" id="paybackPeriodComparison">11 mo</div>
-                    </div>
-                    </div>
-                    </div>
+                            <div class="energy-metric-item">
+                                <div class="energy-metric-icon">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="energy-metric-content">
+                                    <h4>CO2 Reduction/Year</h4>
+                                    <div class="value" id="co2Reduction">4,218 lbs</div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="comparison-note">
-                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 10px;">
-                    RoasTronix saves you <strong id="advantageAmount" style="color: var(--primary-gold);">$6,312</strong> more per year
-                    </div>
-                    <div class="comparison-advantage">
-                    ✓ Choose RoasTronix
-                    </div>
-                    </div>
+                        <div class="energy-highlight">
+                            <p>All-electric roasting produces <strong id="co2Percent">62%</strong> less CO2 emissions than gas</p>
+                            <div class="energy-badge-inline">⚡ Zero Direct Emissions</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3085,8 +3160,6 @@
                 <ul>
                     <li><a href="#products">Smart Roasters</a></li>
                     <li><a href="#products">Coffee Machines</a></li>
-                    <li><a href="#products">Super Automatic</a></li>
-                    <li><a href="#products">Espresso</a></li>
                 </ul>
             </div>
 
@@ -3332,16 +3405,6 @@
             const equipmentCost = 30000;
             const monthsToPayback = Math.ceil((equipmentCost / totalROI) * 12);
 
-            // Brand X calculations (31% higher operational costs)
-            const operationalCostPerLbBrandX = 2.62;
-            const totalRoastingCostBrandX = (greenCoffeePrice + operationalCostPerLbBrandX) * coffeeWeekly * 52;
-            const annualSavingsBrandX = currentAnnualCost - totalRoastingCostBrandX;
-            const savingsPerLbBrandX = annualSavingsBrandX / (coffeeWeekly * 52);
-            const totalROIBrandX = annualSavingsBrandX + retailProfit;
-            const monthsToPaybackBrandX = Math.ceil((equipmentCost / totalROIBrandX) * 12);
-
-            const advantageAmount = totalROI - totalROIBrandX;
-
             const symbols = {
                 'USD': '$',
                 'EUR': '€',
@@ -3357,17 +3420,80 @@
             document.getElementById('savingsPerLb').textContent = `${symbol}${savingsPerLb.toFixed(2)}`;
             document.getElementById('retailProfit').textContent = `${symbol}${retailProfit.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
             document.getElementById('paybackPeriod').textContent = `${monthsToPayback} mo`;
-
-            // Update Brand X
-            document.getElementById('totalROIComparison').textContent = `${symbol}${totalROIBrandX.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-            document.getElementById('annualSavingsComparison').textContent = `${symbol}${annualSavingsBrandX.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-            document.getElementById('savingsPerLbComparison').textContent = `${symbol}${savingsPerLbBrandX.toFixed(2)}`;
-            document.getElementById('retailProfitComparison').textContent = `${symbol}${retailProfit.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-            document.getElementById('paybackPeriodComparison').textContent = `${monthsToPaybackBrandX} mo`;
-            document.getElementById('advantageAmount').textContent = `${symbol}${advantageAmount.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
         }
 
         calculateROI();
+
+        // Energy Consumption Calculator
+        const sessionsWeeklySlider = document.getElementById('sessionsWeekly');
+        const sessionsWeeklyValueEl = document.getElementById('sessionsWeeklyValue');
+        const batchSizeSlider = document.getElementById('batchSize');
+        const batchSizeValueEl = document.getElementById('batchSizeValue');
+        const sessionDurationSlider = document.getElementById('sessionDuration');
+        const sessionDurationValueEl = document.getElementById('sessionDurationValue');
+        const electricityRateSlider = document.getElementById('electricityRate');
+        const electricityRateValueEl = document.getElementById('electricityRateValue');
+        const gasRateSlider = document.getElementById('gasRate');
+        const gasRateValueEl = document.getElementById('gasRateValue');
+
+        sessionsWeeklySlider.addEventListener('input', (e) => {
+            sessionsWeeklyValueEl.textContent = e.target.value;
+            calculateEnergy();
+        });
+        batchSizeSlider.addEventListener('input', (e) => {
+            batchSizeValueEl.textContent = e.target.value;
+            calculateEnergy();
+        });
+        sessionDurationSlider.addEventListener('input', (e) => {
+            sessionDurationValueEl.textContent = e.target.value;
+            calculateEnergy();
+        });
+        electricityRateSlider.addEventListener('input', (e) => {
+            electricityRateValueEl.textContent = parseFloat(e.target.value).toFixed(2);
+            calculateEnergy();
+        });
+        gasRateSlider.addEventListener('input', (e) => {
+            gasRateValueEl.textContent = parseFloat(e.target.value).toFixed(2);
+            calculateEnergy();
+        });
+
+        function calculateEnergy() {
+            const sessions = parseFloat(sessionsWeeklySlider.value);
+            const batchSize = parseFloat(batchSizeSlider.value);
+            const duration = parseFloat(sessionDurationSlider.value);
+            const elecRate = parseFloat(electricityRateSlider.value);
+            const gasRate = parseFloat(gasRateSlider.value);
+
+            // Electric roaster: ~5kW average draw for shop roaster
+            const electricKwPerSession = 5 * (duration / 60);
+            const annualSessions = sessions * 52;
+            const annualKwh = electricKwPerSession * annualSessions;
+            const annualElectricCost = annualKwh * elecRate;
+
+            // Gas roaster equivalent: ~0.23 therms per session per lb batch
+            const gasPerSession = 0.23 * batchSize * (duration / 15);
+            const annualTherms = gasPerSession * annualSessions;
+            const annualGasCost = annualTherms * gasRate;
+
+            const energySavings = annualGasCost - annualElectricCost;
+
+            // CO2 calculations
+            // Electric: ~0.92 lbs CO2 per kWh (US grid average)
+            // Gas: ~11.7 lbs CO2 per therm
+            const electricCO2 = annualKwh * 0.92;
+            const gasCO2 = annualTherms * 11.7;
+            const co2Reduction = gasCO2 - electricCO2;
+            const co2Percent = gasCO2 > 0 ? Math.round((co2Reduction / gasCO2) * 100) : 0;
+
+            document.getElementById('energySavingsTotal').textContent = `$${Math.round(energySavings).toLocaleString('en-US')}`;
+            document.getElementById('annualKwh').textContent = Math.round(annualKwh).toLocaleString('en-US');
+            document.getElementById('annualElectricCost').textContent = `$${Math.round(annualElectricCost).toLocaleString('en-US')}`;
+            document.getElementById('annualGasCost').textContent = `$${Math.round(annualGasCost).toLocaleString('en-US')}`;
+            document.getElementById('co2Reduction').textContent = `${Math.round(co2Reduction).toLocaleString('en-US')} lbs`;
+            document.getElementById('co2Percent').textContent = `${co2Percent}%`;
+        }
+
+        calculateEnergy();
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
