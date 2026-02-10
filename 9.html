@@ -116,7 +116,7 @@
             transition: all 0.3s;
         }
 
-        .nav-menu a::after {
+        .nav-menu a:not(.nav-cta)::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -127,7 +127,7 @@
             transition: width 0.3s;
         }
 
-        .nav-menu a:hover::after {
+        .nav-menu a:not(.nav-cta):hover::after {
             width: 100%;
         }
 
@@ -143,7 +143,7 @@
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(160, 28, 46, 0.5);
+            box-shadow: 0 0 20px rgba(160, 28, 46, 0.6), 0 0 40px rgba(160, 28, 46, 0.3), 0 0 60px rgba(160, 28, 46, 0.15);
         }
 
         nav.scrolled .nav-cta {
@@ -1270,8 +1270,9 @@
         .sca-number {
             font-size: 3rem;
             font-weight: 800;
-            color: rgba(160, 28, 46, 0.2);
+            color: rgba(160, 28, 46, 0.6);
             margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(160, 28, 46, 0.2);
         }
 
         .sca-card h3 {
