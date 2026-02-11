@@ -8,6 +8,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Conthrax';
+            src: url('fonts/conthrax-rg.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Conthrax';
+            src: url('fonts/conthrax-rg-it.otf') format('opentype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Conthrax';
+            src: url('fonts/conthrax-sb.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Conthrax';
+            src: url('fonts/conthrax-bd.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Conthrax';
+            src: url('fonts/conthrax-hv.otf') format('opentype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Conthrax';
+            src: url('fonts/conthrax-lt.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -39,6 +82,10 @@
             overflow-x: hidden;
             padding-top: 0;
             transition: padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Conthrax', 'Inter', sans-serif;
         }
 
         /* Add padding when navbar is at top */
