@@ -527,6 +527,31 @@
             margin-bottom: 20px;
         }
 
+        .product-card-quote-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-gold-dark));
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .product-card-quote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(160, 28, 46, 0.5);
+        }
+
         .product-card-meta {
             display: flex;
             justify-content: space-between;
@@ -1109,6 +1134,75 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Sticky CTA Bar */
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: -80px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border-dark);
+            padding: 14px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sticky-cta-bar.visible {
+            bottom: 0;
+        }
+
+        .sticky-cta-bar p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .sticky-cta-bar p strong {
+            color: var(--text-primary);
+        }
+
+        .sticky-cta-btn {
+            padding: 12px 35px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-gold-dark));
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .sticky-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(160, 28, 46, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta-bar {
+                padding: 12px 20px;
+                gap: 12px;
+            }
+
+            .sticky-cta-bar p {
+                display: none;
+            }
+
+            .sticky-cta-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1174,6 +1268,7 @@
                 <div class="product-card-info">
                     <h3>Stronghold S7X</h3>
                     <p>Advanced AI controls with championship-winning precision. Ideal for boutique operations and single-origin specialists.</p>
+                    <a href="9.html#contact" class="product-card-quote-btn" onclick="event.stopPropagation();">Get a Quote</a>
                     <div class="product-card-meta">
                         <div class="product-card-price">From <span>$444</span>/mo</div>
                         <div class="product-card-arrow">
@@ -1193,6 +1288,7 @@
                 <div class="product-card-info">
                     <h3>Stronghold S7 Pro</h3>
                     <p>Professional-grade AI roasting with enhanced controls. Perfect for boutique roasters demanding consistency.</p>
+                    <a href="9.html#contact" class="product-card-quote-btn" onclick="event.stopPropagation();">Get a Quote</a>
                     <div class="product-card-meta">
                         <div class="product-card-price">From <span>$444</span>/mo</div>
                         <div class="product-card-arrow">
@@ -1212,6 +1308,7 @@
                 <div class="product-card-info">
                     <h3>Stronghold S8X</h3>
                     <p>Perfect balance of capacity and precision. Built for cafés scaling their quality roasting operations.</p>
+                    <a href="9.html#contact" class="product-card-quote-btn" onclick="event.stopPropagation();">Get a Quote</a>
                     <div class="product-card-meta">
                         <div class="product-card-price">From <span>$444</span>/mo</div>
                         <div class="product-card-arrow">
@@ -1231,6 +1328,7 @@
                 <div class="product-card-info">
                     <h3>Stronghold S9X</h3>
                     <p>Maximum capacity with uncompromised precision. Built for high-volume champions and commercial operations.</p>
+                    <a href="9.html#contact" class="product-card-quote-btn" onclick="event.stopPropagation();">Get a Quote</a>
                     <div class="product-card-meta">
                         <div class="product-card-price">From <span>$444</span>/mo</div>
                         <div class="product-card-arrow">
@@ -1250,6 +1348,7 @@
                 <div class="product-card-info">
                     <h3>iRhea M3 Pro</h3>
                     <p>Intelligent pour-over with dual heating system. Automated precision delivering 60 cups of excellence per hour.</p>
+                    <a href="9.html#contact" class="product-card-quote-btn" onclick="event.stopPropagation();">Get a Quote</a>
                     <div class="product-card-meta">
                         <div class="product-card-price">From <span>$444</span>/mo</div>
                         <div class="product-card-arrow">
@@ -1269,6 +1368,7 @@
                 <div class="product-card-info">
                     <h3>iRhea M5</h3>
                     <p>Premium performance with maximum automation. Professional reliability delivering 100 cups per hour.</p>
+                    <a href="9.html#contact" class="product-card-quote-btn" onclick="event.stopPropagation();">Get a Quote</a>
                     <div class="product-card-meta">
                         <div class="product-card-price">From <span>$444</span>/mo</div>
                         <div class="product-card-arrow">
@@ -1652,6 +1752,35 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+    <!-- Sticky CTA Bar -->
+    <div class="sticky-cta-bar" id="stickyCta">
+        <p><strong>Leasing from $444/mo</strong> — Find the perfect roaster for your operation</p>
+        <a href="9.html#contact" class="sticky-cta-btn">Get a Quote</a>
+    </div>
+
+    <script>
+        // Sticky CTA bar — show after scrolling past hero
+        (function() {
+            const stickyCta = document.getElementById('stickyCta');
+            const hero = document.querySelector('.products-hero');
+            const footer = document.querySelector('footer');
+
+            if (stickyCta && hero) {
+                window.addEventListener('scroll', function() {
+                    const heroBottom = hero.offsetTop + hero.offsetHeight;
+                    const footerTop = footer ? footer.offsetTop - window.innerHeight : Infinity;
+                    const scrollY = window.scrollY;
+
+                    if (scrollY > heroBottom && scrollY < footerTop) {
+                        stickyCta.classList.add('visible');
+                    } else {
+                        stickyCta.classList.remove('visible');
+                    }
+                });
+            }
+        })();
     </script>
 </body>
 </html>
