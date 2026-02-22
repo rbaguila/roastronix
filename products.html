@@ -132,7 +132,7 @@
             transition: all 0.3s;
         }
 
-        .nav-menu a:not(.nav-cta)::after {
+        .nav-menu a:not(.nav-cta):not(.nav-shop)::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -143,12 +143,29 @@
             transition: width 0.3s;
         }
 
-        .nav-menu a:not(.nav-cta):hover::after {
+        .nav-menu a:not(.nav-cta):not(.nav-shop):hover::after {
             width: 100%;
         }
 
         .nav-menu a.active::after {
             width: 100%;
+        }
+
+        .nav-shop {
+            padding: 14px 35px;
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-shop:hover,
+        .nav-shop.active {
+            transform: translateY(-2px);
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .nav-cta {
@@ -258,8 +275,26 @@
             transform: translateX(10px);
         }
 
-        .mobile-menu .nav-cta {
+        .mobile-menu .nav-shop {
             margin-top: 20px;
+            text-align: center;
+            display: block;
+            padding: 18px 40px;
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .mobile-menu .nav-shop:hover {
+            color: #ffffff;
+            border-color: #ffffff;
+            transform: translateX(0) translateY(-3px);
+        }
+
+        .mobile-menu .nav-cta {
+            margin-top: 10px;
             text-align: center;
             display: block;
             padding: 18px 40px;
@@ -1211,9 +1246,9 @@
         <div class="nav-container">
             <a href="9.html" class="logo"><img src="roastronix-2025-logo-reg.png" alt="RoasTronix"></a>
             <ul class="nav-menu">
-                <li><a href="9.html#products" class="active">Products</a></li>
                 <li><a href="9.html#services">Services</a></li>
                 <li><a href="9.html#sca">SCA Events</a></li>
+                <li><a href="products.html" class="nav-shop active">Shop</a></li>
                 <li><a href="9.html#contact" class="nav-cta">Contact Us</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -1229,9 +1264,9 @@
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu"></button>
         <ul>
-            <li><a href="9.html#products" class="mobile-menu-link">Products</a></li>
             <li><a href="9.html#services" class="mobile-menu-link">Services</a></li>
             <li><a href="9.html#sca" class="mobile-menu-link">SCA Events</a></li>
+            <li><a href="products.html" class="nav-shop mobile-menu-link">Shop</a></li>
             <li><a href="9.html#contact" class="nav-cta mobile-menu-link">Contact Us</a></li>
         </ul>
     </div>
